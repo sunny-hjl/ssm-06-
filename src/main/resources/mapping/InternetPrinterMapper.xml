@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.InternetPrinterDao">
+
+<select id ="selectInternetPrinter" resultType="com.ssm.entity.InternetPrinter">
+  select * from `px_internetprinter`
+</select>
+
+
+<select id="selectInternetPrinterOne" parameterType="String" resultType="com.ssm.entity.InternetPrinter">
+   select * from `px_internetprinter`  where IID = #{IID}
+</select>
+
+<insert id="insertInternetPrinter"  parameterType="com.ssm.entity.InternetPrinter">
+   insert  into `px_internetprinter`(IID,IName,PrintIP,IAddTime,IRole,IRamark) values (#{IID},#{IName},#{PrintIP},#{IAddTime},#{IRole},#{IRamark})
+</insert>
+
+<update id="updateInternetPrinter" parameterType="com.ssm.entity.InternetPrinter">
+   update `px_internetprinter` set IName=#{IName},PrintIP=#{PrintIP},IAddTime=#{IAddTime} ,IRole=#{IRole},IRamark=#{IRamark} where IID=#{IID}
+</update>
+	
+<delete id="deleteInternetPrinter" parameterType="int">
+   delete from `px_internetprinter`where IID=#{IID} 
+</delete>
+
+</mapper>

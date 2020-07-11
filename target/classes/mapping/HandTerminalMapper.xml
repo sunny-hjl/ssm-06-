@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ssm.dao.HandTerminalDao">
+
+
+<select id="getHandTerminalList"  resultType="com.ssm.entity.HandTerminal">
+    select * from `px_showchiclient` 
+</select>
+<select id="selectHandTerminalOne" parameterType="com.ssm.entity.HandTerminal" resultType="com.ssm.entity.HandTerminal">
+select * from `px_showchiclient`  where SID =#{SID}
+</select>
+<insert id="addHandTerminal"  parameterType="com.ssm.entity.HandTerminal">
+insert  into `px_showchiclient`(SID,SName,ClientIP,SAddTiem,SRole,SRamark) values (#{SID},#{SName},#{ClientIP},#{SAddTiem},#{SRole},#{SRamark})
+</insert>
+<update id="updateHandTerminal" parameterType="com.ssm.entity.HandTerminal">
+		update `px_showchiclient` set SName=#{SName},ClientIP=#{ClientIP},SAddTiem=#{SAddTiem} ,SRole=#{SRole},SRamark=#{SRamark} where SID=#{SID}
+</update>
+<delete id="deleteHandTerminal" parameterType="com.ssm.entity.HandTerminal">
+	delete from `px_showchiclient`where SID=#{SID} 
+</delete>
+</mapper>
